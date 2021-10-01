@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movies Catalogue</string>
+    <string name="addMovie">Add Movie</string>
+    <string name="enterName" />
+    <string name="enterMovieName">Enter the name of the Movie</string>
+    <string name="movieGenre">Enter genre of the movie</string>
+    <string name="enterMovieGenre">Enter the genre of the movie</string>
+    <string name="enterGenre">Enter the genre of the Movie</string>
+    <string name="MovieDescription">Enter the Movie description</string>
+    <string name="addBtn">Add</string>
+</resources>
