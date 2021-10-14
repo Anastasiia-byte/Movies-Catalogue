@@ -1,6 +1,8 @@
 package com.example.moviescatalogue;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,7 @@ public class MovieActivity extends AppCompatActivity {
     private TextView genre;
     private TextView descr;
     private Slider slider;
+    private Button rateMovie;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +29,7 @@ public class MovieActivity extends AppCompatActivity {
         genre = findViewById(R.id.selectedMovieGenre);
         descr = findViewById(R.id.selectedMovieDescription);
         slider = findViewById(R.id.rateSlider);
-
-
+        rateMovie = findViewById(R.id.rateMovieBtn);
 
         getIncomingIntent();
 
@@ -38,7 +40,7 @@ public class MovieActivity extends AppCompatActivity {
         if(getIntent().hasExtra("movie_name")){
             String movieName = getIntent().getStringExtra("movie_name");
             getMovieObj(movieName);
-            getRate(movieName);
+            setRate(movieName);
         }
     }
 
@@ -55,13 +57,13 @@ public class MovieActivity extends AppCompatActivity {
         slider.setValue(movie.rate);
     }
 
-    private void getRate(final String movieName){
-        slider.addOnChangeListener(new Slider.OnChangeListener() {
+    private void setRate(final String movieName){
+        rateMovie.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onValueChange(@NonNull Slider slider, float value, boolean fromUser) {
-                int rateValue = Math.round(value);
+            public void onClick(View view) {
+                int rate = Math.round(slider.getValue());
                 AppDatabase db = AppDatabase.getInstance(getApplicationContext());
-                db.movieDao().changeRate(rateValue, movieName);
+                db.movieDao().changeRate(rate, movieName);
             }
         });
     }

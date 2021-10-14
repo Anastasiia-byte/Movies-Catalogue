@@ -25,15 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private MoviesListAdapter moviesListAdapter;
     private MoviesListAdapter.RecyclerViewClickListener listener;
 
-    private ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
+    private final ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            new ActivityResultCallback<ActivityResult>() {
-                @Override
-                public void onActivityResult(ActivityResult result) {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        loadMovies();
-                    }
-                }
+            result -> {
+                loadMovies();
             });
 
     @Override
@@ -78,13 +73,10 @@ public class MainActivity extends AppCompatActivity {
     private void setOnClickListener() {
         final AppDatabase db = AppDatabase.getInstance(this.getApplicationContext());
         final List<Movie> moviesList = db.movieDao().getAll();
-        listener = new MoviesListAdapter.RecyclerViewClickListener() {
-            @Override
-            public void onClick(View v, int position) {
-                Intent intent = new Intent(getApplicationContext(), MovieActivity.class);
-                intent.putExtra("movie_name", moviesList.get(position).name);
-                startActivity(intent);
-            }
+        listener = (v, position) -> {
+            Intent intent = new Intent(getApplicationContext(), MovieActivity.class);
+            intent.putExtra("movie_name", moviesList.get(position).name);
+            startActivity(intent);
         };
     }
 

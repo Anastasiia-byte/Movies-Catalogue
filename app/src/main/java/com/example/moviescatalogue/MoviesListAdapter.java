@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.moviescatalogue.databases.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.MyViewHolder> {
@@ -41,7 +42,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.My
 
     @SuppressLint("NotifyDataSetChanged")
     public void setMovieList(List<Movie> movieList) {
-        this.movieList = movieList;
+        this.movieList = new ArrayList<>(movieList);
         notifyDataSetChanged();
     }
 
