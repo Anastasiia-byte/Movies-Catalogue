@@ -7,7 +7,15 @@
         <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/activity_movie.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/activity_watched_movies_list.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/add_movie_fragment.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/drawer_view.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/movie_fragment.xml" value="0.25885416666666666" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/movies_list_fragment.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/nav_header.xml" value="0.27291666666666664" />
         <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/recycler_row.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/toolbar.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/layout/watched_movies_list_fragment.xml" value="0.27291666666666664" />
+        <entry key="..\:/AndroidStudioProjects/MoviesCatalogue/app/src/main/res/menu/drawer_view.xml" value="0.27291666666666664" />
       </map>
     </option>
   </component>

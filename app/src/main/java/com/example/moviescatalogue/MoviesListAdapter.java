@@ -35,11 +35,6 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.My
         this.listener = listener;
     }
 
-    public MoviesListAdapter(Context context){
-        this.context = context;
-        this.listener = null;
-    }
-
     @SuppressLint("NotifyDataSetChanged")
     public void setMovieList(List<Movie> movieList) {
         this.movieList = new ArrayList<>(movieList);
@@ -87,8 +82,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.My
 
         @Override
         public void onClick(View view) {
-            if(listener != null)
-                listener.onClick(view, getAdapterPosition());
+            listener.onClick(view, getAdapterPosition());
         }
     }
 

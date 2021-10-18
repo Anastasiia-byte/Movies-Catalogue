@@ -1,5 +1,6 @@
 package com.example.moviescatalogue.databases;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -11,16 +12,19 @@ import java.util.List;
 @Dao
 public interface MovieDao {
     @Query("SELECT * FROM movies")
-    List<Movie> getAll();
+    LiveData<List<Movie>> getAll();
 
     @Query("SELECT * FROM movies WHERE is_watched = 1")
-    List<Movie> getAllWatched();
+    LiveData<List<Movie>> getAllWatched();
+
+    @Query("SELECT * FROM movies WHERE is_watched = 0")
+    LiveData<List<Movie>> getAllUnWatched();
 
     @Query("SELECT * FROM movies WHERE rowid IN (:movieIds)")
-    List<Movie> loadAllByIds(int[] movieIds);
+    LiveData<List<Movie>> loadAllByIds(int[] movieIds);
 
     @Query("SELECT * FROM movies WHERE name LIKE :name")
-    List<Movie> findByName(String name);
+    LiveData<List<Movie>> findByName(String name);
 
     @Query("UPDATE movies SET rate = :newRate, is_watched = 1 WHERE name = :name")
     void changeRate(int newRate, String name);
